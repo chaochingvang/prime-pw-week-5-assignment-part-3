@@ -10,7 +10,7 @@ function addToCollection(title, artist, yearPublished){
   } //end object song
   collection.push(song);  //adding object song into collection array
   return song;
-}
+} //end fx
 
 console.log('Adding 1st song:', addToCollection('Certified Lover Boy', 'Drake', '2021'));
 console.log('Adding 2nd song:', addToCollection('Donda', 'Kanye West', '2021'));
@@ -26,6 +26,20 @@ function showCollection(array){
   for(let i in array){
     console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
   }     //end for loop
-}
+} //end fx
 
 console.log(showCollection(collection));    //testing fx showCollection
+
+
+function findByArtist(artist){
+  let result = [];
+  for(i in collection){                        //search every index in array
+    if(artist === collection[i].artist){       //if parameter equals artist of songs
+      result.push(collection[i]);               //add song to result array
+    } //end if
+  } //end for loop
+  return result;
+} //end fx
+
+console.log('Finding Kanye West songs:', findByArtist('Kanye West'));
+console.log('Finding Bruno Mars songs:', findByArtist('Bruno Mars'));
